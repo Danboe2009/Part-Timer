@@ -34,7 +34,8 @@ class MainActivity : AppCompatActivity() {
             PartObject("Cold Air", wedDate, 94000)
         )
 
-        binding.fab.setOnClickListener { view ->
+        binding.fab.root.setOnClickListener {
+			view ->
             Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show()
         }

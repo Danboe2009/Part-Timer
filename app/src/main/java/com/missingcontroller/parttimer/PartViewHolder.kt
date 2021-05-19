@@ -1,6 +1,7 @@
 package com.missingcontroller.parttimer
 
 import android.graphics.Color
+import android.graphics.drawable.GradientDrawable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import java.text.SimpleDateFormat
 import java.util.*
 import java.util.concurrent.TimeUnit
+
 
 class PartViewHolder(inflater: LayoutInflater, parent: ViewGroup, identifier: Int) :
   RecyclerView.ViewHolder(inflater.inflate(R.layout.part_object, parent, false)),
@@ -45,12 +47,22 @@ class PartViewHolder(inflater: LayoutInflater, parent: ViewGroup, identifier: In
   }
 
   fun colorObject(days: Long) {
+    val redColor = intArrayOf(Color.parseColor("#ff5858"), Color.parseColor("#ffc8c8"))
+    val yellowColor = intArrayOf(Color.parseColor("#f2db00"), Color.parseColor("#f9ffa1"))
+    val greenColor = intArrayOf(Color.parseColor("#5cb270"), Color.parseColor("#d1fbd8"))
+
+    val redGD = GradientDrawable(GradientDrawable.Orientation.TL_BR, redColor)
+    val yellowGD = GradientDrawable(GradientDrawable.Orientation.TL_BR, yellowColor)
+    val greenGD = GradientDrawable(GradientDrawable.Orientation.TL_BR, greenColor)
+
+//    gd.cornerRadius = 0f
+
     if (days > 365) {
-      constraintLayout.setBackgroundColor(Color.RED)
+      constraintLayout.setBackgroundDrawable(redGD)
     } else if (days > 100) {
-      constraintLayout.setBackgroundColor(Color.YELLOW)
+      constraintLayout.setBackgroundDrawable(yellowGD)
     } else {
-      constraintLayout.setBackgroundColor(Color.GREEN)
+      constraintLayout.setBackgroundDrawable(greenGD)
     }
   }
 }

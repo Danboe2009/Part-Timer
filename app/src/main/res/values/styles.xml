@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+  <style name="mcmRoundImage" parent="">
+    <item name="shapeAppearanceOverlay">
+      @style/ShapeAppearanceOverlay.MaterialCardView.AllFourCut
+    </item>
+  </style>
+
+  <style name="ShapeAppearanceOverlay.MaterialCardView.AllFourCut" parent="">
+    <item name="cornerFamily">rounded</item>
+    <item name="cornerSizeTopRight">10dp</item>
+    <item name="cornerSizeTopLeft">10dp</item>
+    <item name="cornerSizeBottomRight">10dp</item>
+    <item name="cornerSizeBottomLeft">10dp</item>
+  </style>
+
+</resources>
