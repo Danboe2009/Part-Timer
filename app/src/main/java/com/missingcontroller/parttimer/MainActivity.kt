@@ -2,11 +2,15 @@ package com.missingcontroller.parttimer
 
 import android.os.Build
 import android.os.Bundle
+import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.snackbar.Snackbar
 import com.missingcontroller.parttimer.databinding.ActivityMainBinding
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -22,20 +26,30 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val date = SimpleDateFormat("dd-MM-yyyy", Locale.US).parse("10-10-2020")
-        val longDate = SimpleDateFormat("dd-MM-yyyy", Locale.US).parse("10-10-2005")
-        val wedDate = SimpleDateFormat("dd-MM-yyyy", Locale.US).parse("13-05-2018")
+        val request = RetroFitBuilder.buildService(PartsURLService::class.java)
+        val response = request.listParts("CqBAJn5x9v3qokS1H1N2rSAm7ECBYC6PctSk3tJMhHu5lCiGDw78FCbNfiRRNYmG")
 
+        response.enqueue(object : Callback<List<PartObject>> {
+            override fun onResponse(call: Call<List<PartObject>>, response: Response<List<PartObject>>) {
+                if (response.isSuccessful){
+                    println("Response: Success: ${response}")
+                    data = response.body()!!
+                    binding.rvPartsList.apply {
+                        setHasFixedSize(true)
+                        layoutManager = LinearLayoutManager(this@MainActivity)
+                        adapter = PartListAdapter(data.sortedBy { it.date }, 1)
+                    }
+                } else {
+                    println("Response: Not: ${response}")
+                }
+            }
+            override fun onFailure(call: Call<List<PartObject>>, t: Throwable) {
+                println("Response: Fail: ${t.message}")
+                Toast.makeText(this@MainActivity, "${t.message}", Toast.LENGTH_SHORT).show()
+            }
+        })
 
-        data = mutableListOf(
-            PartObject("Cold Air", Date(), 94000),
-            PartObject("Cold Air", date, 94000),
-            PartObject("Cold Air", longDate, 94000),
-            PartObject("Cold Air", wedDate, 94000)
-        )
-
-        binding.fab.root.setOnClickListener {
-			view ->
+        binding.fab.root.setOnClickListener { view ->
             Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show()
         }
@@ -43,10 +57,5 @@ class MainActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-        binding.rvPartsList.apply {
-            setHasFixedSize(true)
-            layoutManager = LinearLayoutManager(this@MainActivity)
-            adapter = PartListAdapter(data.sortedBy { it.installDate }, 1)
-        }
     }
 }
