@@ -37,7 +37,7 @@ class PartViewHolder(inflater: LayoutInflater, parent: ViewGroup, identifier: In
     consumable.text = processConsumable(partObject.consumable)
     typeOfPart.text = partObject.type
     daysSince.text = "${partAge(partObject.date)} Days"
-    colorObject(partAge(partObject.date))
+//    colorObject(partAge(partObject.date))
   }
 
   fun formatDate(date: Date): String {
