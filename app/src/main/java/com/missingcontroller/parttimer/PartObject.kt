@@ -7,8 +7,9 @@ data class PartObject(
     val description: String,
     val consumable: Boolean,
     val type: String,
-    val id: String
+    val id: String,
+    val completed: Boolean
 ) {
     override fun toString(): String =
-        "Name = $part Install Date: $date Install Mileage: $mileage Description: $description"
+        "Name = $part Install Date: $date Install Mileage: $mileage Description: $description Completed: $completed"
 }
