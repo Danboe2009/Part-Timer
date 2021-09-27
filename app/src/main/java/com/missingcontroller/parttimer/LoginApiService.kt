@@ -1,10 +1,16 @@
 package com.missingcontroller.parttimer
 
-import retrofit2.Call
+import kotlinx.coroutines.Deferred
 import retrofit2.http.Body
-import retrofit2.http.GET
+import retrofit2.http.POST
 
 interface LoginApiService {
-    @GET("User/login")
-    fun logIn(@Body user: UserAccount): Call<LoginResponse>
+    @POST("user/login")
+    fun submitLogIn(@Body user: UserAccount): Deferred<LoginResponse>
+}
+
+object LoginApi {
+    val retrofitService: LoginApiService by lazy {
+        getRetrofit().create(LoginApiService::class.java)
+    }
 }

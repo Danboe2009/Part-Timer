@@ -34,7 +34,7 @@ class LoginFragment : Fragment() {
         })
 
         viewModel.onSubmitClick.observe(this.viewLifecycleOwner,{
-
+            viewModel.login()
         })
     }
 }

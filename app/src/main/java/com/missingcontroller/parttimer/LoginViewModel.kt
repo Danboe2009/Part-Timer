@@ -1,4 +1,4 @@
-package com.missingcontroller.parttimer;
+package com.missingcontroller.parttimer
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -7,6 +7,8 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
+import retrofit2.await
+import java.lang.Exception
 import java.util.regex.Pattern
 
 class LoginViewModel : ViewModel() {
@@ -56,11 +58,11 @@ class LoginViewModel : ViewModel() {
     fun login() {
         val userAccount = UserAccount(userName, password)
         coroutineScope.launch {
-            val logIn = LoginApiService.logIn(userAccount)
+            val deferredlogIn = LoginApi.retrofitService.submitLogIn(userAccount)
             try {
-                val result = logIn.await()
+                val result = deferredlogIn.await()
                 println("Login Result: $result")
-            } catch (e: java.lang.Exception) {
+            } catch (e: Exception) {
                 println("Login Exception: $e")
             }
         }
