@@ -32,11 +32,11 @@ class PartViewHolder(inflater: LayoutInflater, parent: ViewGroup, identifier: In
 
   fun bind(partObject: PartObject) {
     name.text = partObject.part
-    installDate.text = formatDate(partObject.date)
+//    installDate.text = formatDate(partObject.date)
     installMilage.text = partObject.mileage.toString()
     consumable.text = processConsumable(partObject.consumable)
     typeOfPart.text = partObject.type
-    daysSince.text = "${partAge(partObject.date)} Days"
+//    daysSince.text = "${partAge(partObject.date)} Days"
 //    colorObject(partAge(partObject.date))
   }
 

@@ -1,33 +1,16 @@
 package com.missingcontroller.parttimer
 
-import android.content.res.Resources
-import android.os.Build
 import android.os.Bundle
-import android.util.Log
-import android.widget.Toast
-import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.commit
-import androidx.navigation.NavController
-import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.ui.setupWithNavController
-import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.missingcontroller.parttimer.databinding.ActivityMainBinding
-import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityMainBinding
-    private lateinit var data: List<PartObject>
-    private lateinit var navController: NavController
-    private var bottomNavigationView: BottomNavigationView? = null
-
-    @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        setContentView(R.layout.activity_main)
+        PartsTimerApplication.mainActivity = this
 
+        setContentView(R.layout.activity_main)
     }
 
 //        val request = RetroFitBuilder.buildService(PartsURLService::class.java)

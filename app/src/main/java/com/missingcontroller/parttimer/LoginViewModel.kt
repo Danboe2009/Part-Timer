@@ -7,8 +7,6 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
-import retrofit2.await
-import java.lang.Exception
 import java.util.regex.Pattern
 
 class LoginViewModel : ViewModel() {
@@ -38,6 +36,10 @@ class LoginViewModel : ViewModel() {
     val onSubmitClick: LiveData<Boolean>
         get() = _onSubmitClick
 
+    private val _userDetails = MutableLiveData<LoginResponse>()
+    val userDetails: MutableLiveData<LoginResponse>
+        get() = _userDetails
+
     private fun validateForm() {
         _isValid.value = false
         val pattern = Pattern.compile(emailRegex)
@@ -61,11 +63,11 @@ class LoginViewModel : ViewModel() {
             val deferredlogIn = LoginApi.retrofitService.submitLogIn(userAccount)
             try {
                 val result = deferredlogIn.await()
-                println("Login Result: $result")
+                CredentialManager.saveToken(result.id)
+                _userDetails.value = result
             } catch (e: Exception) {
                 println("Login Exception: $e")
             }
         }
-
     }
 }
