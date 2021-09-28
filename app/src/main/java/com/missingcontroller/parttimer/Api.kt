@@ -35,7 +35,7 @@ val client = OkHttpClient().newBuilder()
 private val retrofit = Retrofit.Builder()
     .addConverterFactory(MoshiConverterFactory.create(moshi))
     .addCallAdapterFactory(CoroutineCallAdapterFactory())
-    .baseUrl("https://part-timer-api.herokuapp.com/")
+    .baseUrl("https://part-timer-api.herokuapp.com/api/")
     .client(client)
     .build()
 

@@ -5,7 +5,7 @@ import retrofit2.http.Body
 import retrofit2.http.POST
 
 interface LoginApiService {
-    @POST("user/login")
+    @POST("Users/login")
     fun submitLogIn(@Body user: UserAccount): Deferred<LoginResponse>
 }
 
