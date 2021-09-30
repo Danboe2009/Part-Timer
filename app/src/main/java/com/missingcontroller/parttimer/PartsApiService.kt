@@ -1,14 +1,20 @@
 package com.missingcontroller.parttimer
 
 import kotlinx.coroutines.Deferred
-import retrofit2.Call
+import retrofit2.http.Body
 import retrofit2.http.GET
+import retrofit2.http.POST
 import retrofit2.http.Query
-
 
 interface PartsApiService {
     @GET("parts")
     fun listParts(@Query("access_token") user: String?): Deferred<List<PartObject>>
+
+    @POST("parts")
+    fun addPart(
+        @Query("access_token") user: String?,
+        @Body part: PartObject
+    ): Deferred<PartsResponse>
 }
 
 object PartsApi {

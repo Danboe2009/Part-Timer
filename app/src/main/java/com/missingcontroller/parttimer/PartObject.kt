@@ -9,6 +9,7 @@ data class PartObject(
     val description: String = "",
     val consumable: Boolean = false,
     val type: String = "",
+    val owner: String = "",
     val id: String = "",
     val completed: Boolean = false
 ) {

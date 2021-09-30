@@ -64,6 +64,7 @@ class LoginViewModel : ViewModel() {
             try {
                 val result = deferredlogIn.await()
                 CredentialManager.saveToken(result.id)
+                CredentialManager.saveToken(result.userId)
                 _userDetails.value = result
             } catch (e: Exception) {
                 println("Login Exception: $e")
