@@ -1,14 +1,18 @@
 package com.missingcontroller.parttimer
 
+import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
-import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import java.util.concurrent.TimeUnit
 
-private val moshi = Moshi.Builder().add(KotlinJsonAdapterFactory()).build()
+private val moshi = Moshi.Builder()
+    .add(KotlinJsonAdapterFactory())
+    .add(CustomDateAdapter())
+    .build()
+
 
 val client = OkHttpClient().newBuilder()
     //.addInterceptor(HttpLoggingInterceptor().apply{
@@ -19,7 +23,8 @@ val client = OkHttpClient().newBuilder()
         val response = chain.proceed(request)
         when (response.code) {
             401 -> {
-
+                println("Bad Token")
+                logout()
             }
             422 -> {
 
@@ -41,4 +46,10 @@ private val retrofit = Retrofit.Builder()
 
 fun getRetrofit(): Retrofit {
     return retrofit
+}
+
+fun logout(){
+    if (PartsTimerApplication.mainActivity != null) {
+        PartsTimerApplication.mainActivity!!.logout()
+    }
 }

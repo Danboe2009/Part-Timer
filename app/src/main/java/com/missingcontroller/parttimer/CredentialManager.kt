@@ -15,6 +15,10 @@ object CredentialManager {
         return context?.getSharedPreferences(SHARED_PREFERENCES_KEY, Context.MODE_PRIVATE)
     }
 
+    fun erasePrefs(){
+        getSharedPreferences()?.edit()?.clear()?.apply()
+    }
+
     fun saveToken(token: String) {
         getSharedPreferences()?.edit()?.putString(SAVE_TOKEN, token)?.apply()
     }

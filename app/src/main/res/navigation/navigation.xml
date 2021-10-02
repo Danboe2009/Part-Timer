@@ -9,15 +9,37 @@
         android:id="@+id/loginFragment"
         android:name="com.missingcontroller.parttimer.LoginFragment"
         android:label="login_fragment"
-        tools:layout="@layout/fragment_login" >
+        tools:layout="@layout/fragment_login">
         <action
             android:id="@+id/navigation_login_to_main_fragment"
-            app:destination="@id/mainFragment"/>
+            app:destination="@id/mainFragment" />
     </fragment>
 
     <fragment
         android:id="@+id/mainFragment"
         android:name="com.missingcontroller.parttimer.MainFragment"
         android:label="main_fragment"
-        tools:layout="@layout/fragment_main" />
+        tools:layout="@layout/fragment_main">
+        <action
+            android:id="@+id/navigation_main_fragment_to_login_fragment"
+            app:destination="@id/loginFragment" />
+
+        <action
+            android:id="@+id/navigation_main_fragment_to_part_add_fragment"
+            app:destination="@id/partAddFragment" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/partAddFragment"
+        android:name="com.missingcontroller.parttimer.PartAddFragment"
+        android:label="part_add_fragment"
+        tools:layout="@layout/fragment_add_part">
+
+        <action
+            android:id="@+id/navigation_part_add_fragment_to_main_fragment"
+            app:destination="@id/mainFragment"/>
+
+    </fragment>
+
 </navigation>

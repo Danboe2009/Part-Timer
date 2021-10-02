@@ -13,7 +13,7 @@ interface PartsApiService {
     @POST("parts")
     fun addPart(
         @Query("access_token") user: String?,
-        @Body part: PartObject
+        @Body part: AddPartObject
     ): Deferred<PartsResponse>
 }
 

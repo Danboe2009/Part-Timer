@@ -1,14 +1,15 @@
 package com.missingcontroller.parttimer
 
-data class PartObject(
+import java.util.*
+
+data class AddPartObject(
     val part: String = "",
     val mileage: String = "",
-    val date: String = "",
+    val date: Date,
     val description: String = "",
     val consumable: Boolean = false,
     val type: String = "",
     val owner: String = "",
-    val id: String = "",
     val completed: Boolean = false
 ) {
 //    override fun toString(): String =

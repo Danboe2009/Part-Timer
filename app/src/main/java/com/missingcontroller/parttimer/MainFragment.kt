@@ -7,8 +7,8 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.google.android.material.snackbar.Snackbar
 import com.missingcontroller.parttimer.databinding.FragmentMainBinding
 
 class MainFragment : Fragment() {
@@ -28,11 +28,13 @@ class MainFragment : Fragment() {
         binding.viewModel = viewModel
 
         binding.fab.root.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show()
+            val action = MainFragmentDirections.navigationMainFragmentToPartAddFragment()
+            requireView().findNavController().navigate(action)
         }
 
         viewModel.getPartsList()
+
+        println("Main Fragment Token: ${CredentialManager.getToken()}")
 
         setupObserver()
 
