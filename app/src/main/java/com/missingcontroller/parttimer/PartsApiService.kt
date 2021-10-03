@@ -8,7 +8,10 @@ import retrofit2.http.Query
 
 interface PartsApiService {
     @GET("parts")
-    fun listParts(@Query("access_token") user: String?): Deferred<List<PartObject>>
+    fun listParts(
+        @Query("access_token") user: String?,
+        @Query("filter[where][owner]") owner: String?
+    ): Deferred<List<PartObject>>
 
     @POST("parts")
     fun addPart(

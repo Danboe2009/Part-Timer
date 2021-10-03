@@ -6,7 +6,6 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
-import retrofit2.await
 
 class MainViewModel : ViewModel() {
     private var viewModelJob = Job()
@@ -19,7 +18,7 @@ class MainViewModel : ViewModel() {
 
     fun getPartsList() {
         coroutineScope.launch {
-            val deferredPartList = PartsApi.retrofitService.listParts(CredentialManager.getToken())
+            val deferredPartList = PartsApi.retrofitService.listParts(CredentialManager.getToken(), CredentialManager.getUserId())
             try {
                 val result = deferredPartList.await()
                _partList.value = result
