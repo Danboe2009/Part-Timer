@@ -16,20 +16,16 @@
             android:layout_height="match_parent"
             android:background="@color/divider_grey">
 
-            <View
-                android:id="@+id/top_divider"
-                android:layout_width="match_parent"
-                android:layout_height="3dp"
-                android:layout_marginTop="8dp"
-                android:background="@color/divider_grey"
-                app:layout_constraintBottom_toTopOf="@id/tv_part_name" />
-
             <TextView
                 android:id="@+id/tv_part_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
+                android:shadowColor="#000000"
+                android:shadowDx="3.5"
+                android:shadowDy="3.3"
+                android:shadowRadius="3.6"
                 android:text="Cold Air Intake"
                 android:textColor="@color/white"
                 app:layout_constraintStart_toStartOf="parent"
@@ -39,6 +35,10 @@
                 android:id="@+id/tv_install_date"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:shadowColor="#000000"
+                android:shadowDx="3.5"
+                android:shadowDy="3.3"
+                android:shadowRadius="3.6"
                 android:text="10/10/2020"
                 android:textColor="@color/white"
                 app:layout_constraintStart_toStartOf="@id/tv_part_name"
@@ -48,6 +48,10 @@
                 android:id="@+id/tv_install_mileage"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:shadowColor="#000000"
+                android:shadowDx="3.5"
+                android:shadowDy="3.3"
+                android:shadowRadius="3.6"
                 android:text="94900"
                 android:textColor="@color/white"
                 app:layout_constraintStart_toStartOf="@id/tv_part_name"
@@ -57,6 +61,10 @@
                 android:id="@+id/tv_consumable"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:shadowColor="#000000"
+                android:shadowDx="3.5"
+                android:shadowDy="3.3"
+                android:shadowRadius="3.6"
                 android:text="Consumable"
                 android:textColor="@color/white"
                 app:layout_constraintStart_toStartOf="@id/tv_install_mileage"
@@ -68,6 +76,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="8dp"
+                android:shadowColor="#000000"
+                android:shadowDx="3.5"
+                android:shadowDy="3.3"
+                android:shadowRadius="3.6"
                 android:text="Headlight"
                 android:textColor="@color/white"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -78,19 +90,16 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="8dp"
+                android:shadowColor="#000000"
+                android:shadowDx="3.5"
+                android:shadowDy="3.3"
+                android:shadowRadius="3.6"
                 android:text="100 days"
                 android:textColor="@color/white"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tv_type_of_part" />
 
 
-            <View
-                android:id="@+id/divider"
-                android:layout_width="match_parent"
-                android:layout_height="3dp"
-                android:layout_marginTop="8dp"
-                android:background="@color/divider_grey"
-                app:layout_constraintTop_toBottomOf="@id/tv_consumable" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </com.google.android.material.card.MaterialCardView>
 </androidx.constraintlayout.widget.ConstraintLayout>

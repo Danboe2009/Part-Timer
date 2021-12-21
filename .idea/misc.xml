@@ -14,11 +14,12 @@
         <entry key="..\:/Users/Voltron/Dropbox/Private Server/Part-Timer/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.2140625" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.12259371833839919" />
         <entry key="app/src/main/res/layout/custom_fab.xml" value="0.12259371833839919" />
+        <entry key="app/src/main/res/layout/fragment_add_part.xml" value="0.19635416666666666" />
         <entry key="app/src/main/res/layout/part_object.xml" value="0.1431159420289855" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

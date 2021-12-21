@@ -111,6 +111,87 @@
                 android:textColor="@color/white" />
         </com.google.android.material.textfield.TextInputLayout>
 
+        <TextView
+            android:id="@+id/tv_date_of_installation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:text="Date Of Installation"
+            android:textColor="@color/divider_grey"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/til_create_part_type" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_create_part_day"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="16dp"
+            android:background="@color/divider_grey"
+            android:hint="Day"
+            android:textColorHint="@color/white"
+            app:layout_constraintEnd_toStartOf="@id/til_create_part_year"
+            app:layout_constraintStart_toEndOf="@id/til_create_part_month"
+            app:layout_constraintTop_toBottomOf="@id/tv_date_of_installation">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/ti_create_part_day"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@={viewModel.dateDay}"
+                android:textColor="@color/white" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_create_part_month"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="16dp"
+            android:background="@color/divider_grey"
+            android:hint="Month"
+            android:textColorHint="@color/white"
+            app:layout_constraintEnd_toStartOf="@id/til_create_part_day"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_date_of_installation">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/ti_create_part_month"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@={viewModel.dateMonth}"
+                android:textColor="@color/white" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_create_part_year"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="16dp"
+            android:background="@color/divider_grey"
+            android:hint="Year"
+            android:textColorHint="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/til_create_part_day"
+            app:layout_constraintTop_toBottomOf="@id/tv_date_of_installation">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/ti_create_part_year"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@={viewModel.dateYear}"
+                android:textColor="@color/white" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
         <CheckBox
             android:id="@+id/cb_create_part_consumable"
             android:layout_width="match_parent"
@@ -124,7 +205,7 @@
             android:textColor="@color/divider_grey"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/til_create_part_type" />
+            app:layout_constraintTop_toBottomOf="@id/til_create_part_day" />
 
         <Button
             android:id="@+id/bt_login_submit"

@@ -7,6 +7,8 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
+import java.text.SimpleDateFormat
+import java.util.*
 
 class PartAddViewModel : ViewModel() {
     private var viewModelJob = Job()
@@ -28,6 +30,21 @@ class PartAddViewModel : ViewModel() {
         set(value) {
             field = value.trim()
         }
+
+    var dateMonth: String = "01"
+        set(value) {
+            field = value.trim()
+        }
+
+    var dateDay: String = "10"
+        set(value) {
+            field = value.trim()
+        }
+
+    var dateYear: String = "1987"
+        set(value) {
+            field = value.trim()
+        }
     var partConsumable: Boolean = false
 
     private val _onSubmitClick = MutableLiveData<Boolean>()
@@ -39,10 +56,14 @@ class PartAddViewModel : ViewModel() {
     }
 
     fun addPart() {
+        val date = SimpleDateFormat("yyyy-MM-dd", Locale.US).parse(
+            "$dateYear-$dateMonth-$dateDay"
+        )
+        println("Date: $date")
         val partToAdd = AddPartObject(
             partName,
             partMileage,
-            java.util.Calendar.getInstance().time,
+            date,
             partDescription,
             partConsumable,
             partType,

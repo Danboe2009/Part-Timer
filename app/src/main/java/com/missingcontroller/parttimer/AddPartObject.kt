@@ -5,7 +5,7 @@ import java.util.*
 data class AddPartObject(
     val part: String = "",
     val mileage: String = "",
-    val date: Date,
+    val date: Date?,
     val description: String = "",
     val consumable: Boolean = false,
     val type: String = "",

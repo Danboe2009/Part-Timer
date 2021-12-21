@@ -11,7 +11,7 @@ object CredentialManager {
     const val SAVE_TOKEN = "save_token"
     const val SAVE_USER_ID = "save_user_id"
 
-    fun getSharedPreferences(): SharedPreferences? {
+    private fun getSharedPreferences(): SharedPreferences? {
         return context?.getSharedPreferences(SHARED_PREFERENCES_KEY, Context.MODE_PRIVATE)
     }
 

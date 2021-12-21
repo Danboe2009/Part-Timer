@@ -4,9 +4,9 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 
-class PartListAdapter(private val list: List<PartObject>, indentifier: Int) :
+class PartListAdapter(private val list: List<PartObject>, identifier: Int) :
   RecyclerView.Adapter<PartViewHolder>() {
-  val viewIdentifier = indentifier
+  private val viewIdentifier = identifier
 
   override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PartViewHolder {
     val inflater = LayoutInflater.from(parent.context)
