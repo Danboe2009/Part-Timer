@@ -13,4 +13,5 @@
     <color name="item_grey">#1B1B1D</color>
     <color name="dark_grey">#2C2C2E</color>
     <color name="background_black">#0F0F10</color>
+    <color name="logo_blue">#1F70CC</color>
 </resources>

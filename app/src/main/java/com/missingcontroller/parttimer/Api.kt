@@ -1,5 +1,6 @@
 package com.missingcontroller.parttimer
 
+import android.widget.Toast
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
@@ -23,8 +24,8 @@ val client = OkHttpClient().newBuilder()
         val response = chain.proceed(request)
         when (response.code) {
             401 -> {
-                println("Bad Token")
-                logout()
+                println("Bad Token: $response")
+                badPassword()
             }
             422 -> {
 
@@ -46,6 +47,12 @@ private val retrofit = Retrofit.Builder()
 
 fun getRetrofit(): Retrofit {
     return retrofit
+}
+
+fun badPassword(){
+    if(PartsTimerApplication.mainActivity != null){
+        PartsTimerApplication.mainActivity!!.badPassword()
+    }
 }
 
 fun logout(){

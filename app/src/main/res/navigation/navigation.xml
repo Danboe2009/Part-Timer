@@ -13,6 +13,22 @@
         <action
             android:id="@+id/navigation_login_to_main_fragment"
             app:destination="@id/mainFragment" />
+
+        <action
+            android:id="@+id/navigation_login_to_create_account_fragment"
+            app:destination="@id/createAccountFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/createAccountFragment"
+        android:name="com.missingcontroller.parttimer.CreateAccountFragment"
+        android:label="create_account_fragment"
+        tools:layout="@layout/fragment_create_account">
+
+        <action
+            android:id="@+id/navigation_create_account_to_main_fragment"
+            app:destination="@id/mainFragment" />
+
     </fragment>
 
     <fragment

@@ -19,7 +19,7 @@ class LoginFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = DataBindingUtil.inflate(
             inflater,
             R.layout.fragment_login, container, false
@@ -35,7 +35,7 @@ class LoginFragment : Fragment() {
     override fun onResume() {
         super.onResume()
         println("Token: ${CredentialManager.getToken()}")
-        if (!CredentialManager.getToken().isNullOrEmpty()) {
+        if (CredentialManager.getToken().isNotEmpty()) {
             val action = LoginFragmentDirections.navigationLoginToMainFragment()
             requireView().findNavController().navigate(action)
         }
@@ -43,11 +43,17 @@ class LoginFragment : Fragment() {
 
     private fun setupObservers() {
         viewModel.isValid.observe(this.viewLifecycleOwner, {
+            binding.btLoginSubmit.setBackgroundColor(resources.getColor(R.color.logo_blue))
             binding.btLoginSubmit.isEnabled = it
         })
 
         viewModel.onSubmitClick.observe(this.viewLifecycleOwner, {
             viewModel.login()
+        })
+
+        viewModel.onCreateClick.observe(this.viewLifecycleOwner, {
+            val action = LoginFragmentDirections.navigationLoginToCreateAccountFragment()
+            requireView().findNavController().navigate(action)
         })
 
         viewModel.userDetails.observe(this.viewLifecycleOwner, {

@@ -7,6 +7,9 @@ import retrofit2.http.POST
 interface LoginApiService {
     @POST("Users/login")
     fun submitLogIn(@Body user: UserAccount): Deferred<LoginResponse>
+
+    @POST("Users")
+    fun submitCreateAccount(@Body user: CreateAccount): Deferred<CreateAccountResponse>
 }
 
 object LoginApi {
