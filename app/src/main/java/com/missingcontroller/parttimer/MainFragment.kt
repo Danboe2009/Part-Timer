@@ -19,7 +19,7 @@ class MainFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = DataBindingUtil.inflate(
             inflater,
             R.layout.fragment_main, container, false
@@ -27,7 +27,7 @@ class MainFragment : Fragment() {
         viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
         binding.viewModel = viewModel
 
-        binding.fab.root.setOnClickListener { view ->
+        binding.fab.root.setOnClickListener {
             val action = MainFragmentDirections.navigationMainFragmentToPartAddFragment()
             requireView().findNavController().navigate(action)
         }
