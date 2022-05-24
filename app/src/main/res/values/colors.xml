@@ -14,4 +14,7 @@
     <color name="dark_grey">#2C2C2E</color>
     <color name="background_black">#0F0F10</color>
     <color name="logo_blue">#1F70CC</color>
+    <color name="status_red">#ff5858</color>
+    <color name="status_yellow">#f2db00</color>
+    <color name="status_green">#5cb270</color>
 </resources>

@@ -13,13 +13,14 @@
         <entry key="..\:/Users/Voltron/Dropbox/Private Server/Part-Timer/app/src/main/res/menu/menu_main.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Voltron/Dropbox/Private Server/Part-Timer/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.2140625" />
         <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.209375" />
+        <entry key="app/src/main/res/drawable/status_circle.xml" value="0.301" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.12259371833839919" />
         <entry key="app/src/main/res/layout/custom_fab.xml" value="0.12259371833839919" />
         <entry key="app/src/main/res/layout/fragment_add_part.xml" value="0.19635416666666666" />
         <entry key="app/src/main/res/layout/fragment_create_account.xml" value="0.2477355072463768" />
         <entry key="app/src/main/res/layout/fragment_login.xml" value="0.25407608695652173" />
         <entry key="app/src/main/res/layout/fragment_main.xml" value="0.18958333333333333" />
-        <entry key="app/src/main/res/layout/part_object.xml" value="0.1431159420289855" />
+        <entry key="app/src/main/res/layout/part_object.xml" value="0.375" />
         <entry key="app/src/main/res/menu/menu_main.xml" value="0.18958333333333333" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.209375" />
       </map>

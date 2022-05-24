@@ -1,10 +1,10 @@
 package com.missingcontroller.parttimer
 
-import android.graphics.Color
-import android.graphics.drawable.GradientDrawable
+import android.graphics.PorterDuff
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
@@ -24,6 +24,7 @@ class PartViewHolder(inflater: LayoutInflater, parent: ViewGroup, identifier: In
     var typeOfPart: TextView = itemView.findViewById(R.id.tv_type_of_part)
     var daysSince: TextView = itemView.findViewById(R.id.tv_days_since)
     var constraintLayout: ConstraintLayout = itemView.findViewById(R.id.cl_part_object)
+    var statusCircle: ImageView = itemView.findViewById(R.id.iv_status_circle)
 
     override fun onClick(v: View?) {
         TODO("Not yet implemented")
@@ -44,30 +45,32 @@ class PartViewHolder(inflater: LayoutInflater, parent: ViewGroup, identifier: In
         return TimeUnit.DAYS.convert(difference, TimeUnit.MILLISECONDS)
     }
 
-    private fun partDate(date: Date) : String{
+    private fun partDate(date: Date): String {
         val calendar = Calendar.getInstance()
         calendar.time = date
-        return "${calendar.get(Calendar.MONTH)+1}/" +
+        return "${calendar.get(Calendar.MONTH) + 1}/" +
                 "${calendar.get(Calendar.DATE)}/" +
                 "${calendar.get(Calendar.YEAR)}"
     }
 
 
     private fun colorObject(days: Long) {
-        val redColor = intArrayOf(Color.parseColor("#ff5858"), Color.parseColor("#ffc8c8"))
-        val yellowColor = intArrayOf(Color.parseColor("#f2db00"), Color.parseColor("#f9ffa1"))
-        val greenColor = intArrayOf(Color.parseColor("#5cb270"), Color.parseColor("#d1fbd8"))
-
-        val redGD = GradientDrawable(GradientDrawable.Orientation.TL_BR, redColor)
-        val yellowGD = GradientDrawable(GradientDrawable.Orientation.TL_BR, yellowColor)
-        val greenGD = GradientDrawable(GradientDrawable.Orientation.TL_BR, greenColor)
 
         if (days > 365) {
-            constraintLayout.setBackgroundDrawable(redGD)
+            statusCircle.setColorFilter(
+                itemView.resources.getColor(R.color.status_red),
+                PorterDuff.Mode.SRC_ATOP
+            )
         } else if (days > 100) {
-            constraintLayout.setBackgroundDrawable(yellowGD)
+            statusCircle.setColorFilter(
+                itemView.resources.getColor(R.color.status_yellow),
+                PorterDuff.Mode.SRC_ATOP
+            )
         } else {
-            constraintLayout.setBackgroundDrawable(greenGD)
+            statusCircle.setColorFilter(
+                itemView.resources.getColor(R.color.status_green),
+                PorterDuff.Mode.SRC_ATOP
+            )
         }
     }
 

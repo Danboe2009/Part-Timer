@@ -1,6 +1,5 @@
 package com.missingcontroller.parttimer
 
-import android.widget.Toast
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
@@ -22,6 +21,7 @@ val client = OkHttpClient().newBuilder()
     .addInterceptor { chain ->
         val request = chain.request()
         val response = chain.proceed(request)
+        println("Response: $response")
         when (response.code) {
             401 -> {
                 println("Bad Token: $response")

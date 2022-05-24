@@ -25,6 +25,7 @@ class MainActivity : AppCompatActivity() {
     fun badPassword() {
         runOnUiThread {
             Toast.makeText(context, "Bad Login", Toast.LENGTH_LONG).show()
+            logout()
         }
     }
 

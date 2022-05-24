@@ -16,6 +16,16 @@
             android:layout_height="match_parent"
             android:background="@color/divider_grey">
 
+            <ImageView
+                android:id="@+id/iv_status_circle"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginStart="16dp"
+                android:src="@drawable/status_circle"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
             <TextView
                 android:id="@+id/tv_part_name"
                 android:layout_width="wrap_content"
@@ -28,7 +38,7 @@
                 android:shadowRadius="3.6"
                 android:text="Cold Air Intake"
                 android:textColor="@color/white"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintStart_toEndOf="@id/iv_status_circle"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
@@ -75,7 +85,7 @@
                 android:id="@+id/tv_type_of_part"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="8dp"
+                android:layout_marginEnd="16dp"
                 android:shadowColor="#000000"
                 android:shadowDx="3.5"
                 android:shadowDy="3.3"
@@ -89,7 +99,7 @@
                 android:id="@+id/tv_days_since"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="8dp"
+                android:layout_marginEnd="16dp"
                 android:shadowColor="#000000"
                 android:shadowDx="3.5"
                 android:shadowDy="3.3"

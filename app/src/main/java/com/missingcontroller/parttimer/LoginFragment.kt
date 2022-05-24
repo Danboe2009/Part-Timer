@@ -3,6 +3,7 @@ package com.missingcontroller.parttimer
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
+import android.view.View.VISIBLE
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
@@ -42,24 +43,25 @@ class LoginFragment : Fragment() {
     }
 
     private fun setupObservers() {
-        viewModel.isValid.observe(this.viewLifecycleOwner, {
+        viewModel.isValid.observe(this.viewLifecycleOwner) {
             binding.btLoginSubmit.setBackgroundColor(resources.getColor(R.color.logo_blue))
             binding.btLoginSubmit.isEnabled = it
-        })
+        }
 
-        viewModel.onSubmitClick.observe(this.viewLifecycleOwner, {
+        viewModel.onSubmitClick.observe(this.viewLifecycleOwner) {
+            binding.pbLoginProgress.visibility = VISIBLE
             viewModel.login()
-        })
+        }
 
-        viewModel.onCreateClick.observe(this.viewLifecycleOwner, {
+        viewModel.onCreateClick.observe(this.viewLifecycleOwner) {
             val action = LoginFragmentDirections.navigationLoginToCreateAccountFragment()
             requireView().findNavController().navigate(action)
-        })
+        }
 
-        viewModel.userDetails.observe(this.viewLifecycleOwner, {
+        viewModel.userDetails.observe(this.viewLifecycleOwner) {
             println("Data Ready: $it")
             val action = LoginFragmentDirections.navigationLoginToMainFragment()
             requireView().findNavController().navigate(action)
-        })
+        }
     }
 }
