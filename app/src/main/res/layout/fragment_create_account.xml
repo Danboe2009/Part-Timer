@@ -159,6 +159,6 @@
 
         <variable
             name="viewModel"
-            type="com.missingcontroller.parttimer.CreateAccountViewModel" />
+            type="com.missingcontroller.parttimer.create.CreateAccountViewModel" />
     </data>
 </layout>

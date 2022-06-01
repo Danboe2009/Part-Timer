@@ -1,9 +1,11 @@
-package com.missingcontroller.parttimer
+package com.missingcontroller.parttimer.create
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.google.gson.Gson
+import com.missingcontroller.parttimer.CredentialManager
+import com.missingcontroller.parttimer.LoginApi
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job

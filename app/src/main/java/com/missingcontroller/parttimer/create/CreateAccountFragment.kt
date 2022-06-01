@@ -1,4 +1,4 @@
-package com.missingcontroller.parttimer
+package com.missingcontroller.parttimer.create
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import com.missingcontroller.parttimer.R
 import com.missingcontroller.parttimer.databinding.FragmentCreateAccountBinding
 
 class CreateAccountFragment : Fragment() {

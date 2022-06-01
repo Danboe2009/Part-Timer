@@ -10,6 +10,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.missingcontroller.parttimer.databinding.FragmentMainBinding
+import com.missingcontroller.parttimer.part.PartListAdapter
 
 class MainFragment : Fragment() {
 
@@ -42,12 +43,12 @@ class MainFragment : Fragment() {
     }
 
     fun setupObserver() {
-        viewModel.partList.observe(this.viewLifecycleOwner, {
+        viewModel.partList.observe(this.viewLifecycleOwner) {
             binding.rvPartsList.apply {
                 setHasFixedSize(true)
                 layoutManager = LinearLayoutManager(requireContext())
                 adapter = PartListAdapter(it.sortedBy { it.date }, 1)
             }
-        })
+        }
     }
 }

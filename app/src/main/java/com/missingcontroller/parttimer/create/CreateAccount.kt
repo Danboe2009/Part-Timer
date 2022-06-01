@@ -1,4 +1,4 @@
-package com.missingcontroller.parttimer
+package com.missingcontroller.parttimer.create
 
 data class CreateAccount(
     val realm: String = "",

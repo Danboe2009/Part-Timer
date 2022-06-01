@@ -14,4 +14,11 @@
     <string name="login_email">Email</string>
     <string name="login_create">Create</string>
     <string name="action_logout">Logout</string>
+
+    <string-array name="part_types">
+        <item>Oil Change</item>
+        <item>Air Filter</item>
+        <item>Headlight</item>
+        <item>Wipers</item>
+    </string-array>
 </resources>

@@ -1,6 +1,7 @@
 package com.missingcontroller.parttimer
 
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
+import com.missingcontroller.parttimer.part.PartsTimerApplication
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import okhttp3.OkHttpClient

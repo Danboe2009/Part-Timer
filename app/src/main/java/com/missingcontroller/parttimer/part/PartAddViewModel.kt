@@ -1,8 +1,9 @@
-package com.missingcontroller.parttimer
+package com.missingcontroller.parttimer.part
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.missingcontroller.parttimer.CredentialManager
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
@@ -31,6 +32,16 @@ class PartAddViewModel : ViewModel() {
             field = value.trim()
         }
 
+    var lifeSpanYear: String = "1"
+        set(value) {
+            field = value.trim()
+        }
+
+    var lifeSpanMileage: String = "10000"
+        set(value) {
+            field = value.trim()
+        }
+
     var dateMonth: String = "01"
         set(value) {
             field = value.trim()
@@ -51,7 +62,7 @@ class PartAddViewModel : ViewModel() {
     val onSubmitClick: LiveData<Boolean>
         get() = _onSubmitClick
 
-    fun onSubmitClicked(){
+    fun onSubmitClicked() {
         _onSubmitClick.value = true
     }
 
@@ -68,10 +79,14 @@ class PartAddViewModel : ViewModel() {
             partConsumable,
             partType,
             CredentialManager.getUserId(),
-            false)
+            false,
+            lifeSpanYear,
+            lifeSpanMileage
+        )
         coroutineScope.launch {
             println("Part To Add: $partToAdd")
-            val deferredPartAdd = PartsApi.retrofitService.addPart(CredentialManager.getToken(),partToAdd)
+            val deferredPartAdd =
+                PartsApi.retrofitService.addPart(CredentialManager.getToken(), partToAdd)
             try {
                 val result = deferredPartAdd.await()
                 println("Part Add Result: $result")

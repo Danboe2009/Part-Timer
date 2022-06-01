@@ -1,7 +1,8 @@
-package com.missingcontroller.parttimer
+package com.missingcontroller.parttimer.part
 
 import android.app.Application
 import android.content.Context
+import com.missingcontroller.parttimer.MainActivity
 
 class PartsTimerApplication : Application() {
 
@@ -12,8 +13,8 @@ class PartsTimerApplication : Application() {
     }
 
     companion object {
-        var appInstance:PartsTimerApplication? = null
-        var mainActivity:MainActivity?=null
+        var appInstance: PartsTimerApplication? = null
+        var mainActivity: MainActivity?=null
         var context: Context? = null
     }
 }

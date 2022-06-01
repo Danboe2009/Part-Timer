@@ -1,4 +1,4 @@
-package com.missingcontroller.parttimer
+package com.missingcontroller.parttimer.part
 
 data class PartsResponse(
     val part: String = "",

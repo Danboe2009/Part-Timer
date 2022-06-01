@@ -88,28 +88,74 @@
                 android:textColor="@color/white" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/til_create_part_type"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        <Spinner
+            android:id="@+id/sp_create_part_type_spinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:entries="@array/part_types"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/til_create_part_description"/>
+
+        <TextView
+            android:id="@+id/tv_create_part_life_span"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
-            android:background="@color/divider_grey"
-            android:hint="Type"
-            android:textColorHint="@color/white"
+            android:text="Part Life Span"
+            android:textColor="@color/divider_grey"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/til_create_part_description">
+            app:layout_constraintTop_toBottomOf="@id/sp_create_part_type_spinner" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_create_part_years"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="8dp"
+            android:background="@color/divider_grey"
+            android:hint="Years"
+            android:textColorHint="@color/white"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/til_create_part_mileage_amount"
+            app:layout_constraintTop_toBottomOf="@id/tv_create_part_life_span">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/ti_create_part_type"
+                android:id="@+id/ti_create_part_years"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@={viewModel.partType}"
+                android:text="@={viewModel.lifeSpanYear}"
                 android:textColor="@color/white" />
         </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_create_part_mileage_amount"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="16dp"
+            android:background="@color/divider_grey"
+            android:hint="Mileage"
+            android:textColorHint="@color/white"
+            app:layout_constraintStart_toEndOf="@id/til_create_part_years"
+            app:layout_constraintTop_toBottomOf="@id/tv_create_part_life_span"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/ti_create_part_mileage_amount"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@={viewModel.lifeSpanMileage}"
+                android:textColor="@color/white" />
+        </com.google.android.material.textfield.TextInputLayout>
+
 
         <TextView
             android:id="@+id/tv_date_of_installation"
@@ -122,7 +168,7 @@
             android:textColor="@color/divider_grey"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/til_create_part_type" />
+            app:layout_constraintTop_toBottomOf="@id/til_create_part_years" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/til_create_part_day"
@@ -223,6 +269,6 @@
 
         <variable
             name="viewModel"
-            type="com.missingcontroller.parttimer.PartAddViewModel" />
+            type="com.missingcontroller.parttimer.part.PartAddViewModel" />
     </data>
 </layout>

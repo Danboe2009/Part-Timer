@@ -1,4 +1,4 @@
-package com.missingcontroller.parttimer
+package com.missingcontroller.parttimer.part
 
 import android.graphics.PorterDuff
 import android.view.LayoutInflater
@@ -8,6 +8,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
+import com.missingcontroller.parttimer.R
 import java.text.SimpleDateFormat
 import java.util.*
 import java.util.concurrent.TimeUnit

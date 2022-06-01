@@ -2,7 +2,7 @@ package com.missingcontroller.parttimer
 
 import android.content.Context
 import android.content.SharedPreferences
-import com.missingcontroller.parttimer.PartsTimerApplication.Companion.context
+import com.missingcontroller.parttimer.part.PartsTimerApplication.Companion.context
 
 object CredentialManager {
     private val tag: String = "CREDENTIALS MANAGER"

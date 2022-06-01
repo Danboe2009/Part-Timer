@@ -5,7 +5,8 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
-import com.missingcontroller.parttimer.PartsTimerApplication.Companion.context
+import com.missingcontroller.parttimer.part.PartsTimerApplication
+import com.missingcontroller.parttimer.part.PartsTimerApplication.Companion.context
 
 class MainActivity : AppCompatActivity() {
 

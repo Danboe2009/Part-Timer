@@ -1,4 +1,4 @@
-package com.missingcontroller.parttimer
+package com.missingcontroller.parttimer.part
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

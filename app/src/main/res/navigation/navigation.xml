@@ -21,7 +21,7 @@
 
     <fragment
         android:id="@+id/createAccountFragment"
-        android:name="com.missingcontroller.parttimer.CreateAccountFragment"
+        android:name="com.missingcontroller.parttimer.create.CreateAccountFragment"
         android:label="create_account_fragment"
         tools:layout="@layout/fragment_create_account">
 
@@ -48,7 +48,7 @@
 
     <fragment
         android:id="@+id/partAddFragment"
-        android:name="com.missingcontroller.parttimer.PartAddFragment"
+        android:name="com.missingcontroller.parttimer.part.PartAddFragment"
         android:label="part_add_fragment"
         tools:layout="@layout/fragment_add_part">
 

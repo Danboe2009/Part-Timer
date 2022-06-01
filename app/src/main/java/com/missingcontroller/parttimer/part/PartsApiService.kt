@@ -1,5 +1,6 @@
-package com.missingcontroller.parttimer
+package com.missingcontroller.parttimer.part
 
+import com.missingcontroller.parttimer.getRetrofit
 import kotlinx.coroutines.Deferred
 import retrofit2.http.Body
 import retrofit2.http.GET
